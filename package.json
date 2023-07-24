@@ -1,6 +1,6 @@
 {
   "name": "samurai",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "homepage": "https://samuraiwars.online",
   "dependencies": {
@@ -34,6 +34,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
     "eslint-config-prettier": "^8.5.0",
