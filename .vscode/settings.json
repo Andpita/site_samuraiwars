@@ -1,0 +1,6 @@
+{
+  "code-runner.executorMap": {
+    "typescript": "clear && npx ts-node --files"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
