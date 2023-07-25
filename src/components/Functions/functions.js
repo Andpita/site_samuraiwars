@@ -6,6 +6,7 @@ export function getRandom(min, max) {
 }
 
 export function battle(randomN, { ...jogador }, { ...enemy }, { ...equiped }) {
+  console.log('COMBATE');
 
   //Player
   const swordPlayerAtt1 = equiped.swordAtr1 || 0;
@@ -72,11 +73,9 @@ export function battle(randomN, { ...jogador }, { ...enemy }, { ...equiped }) {
 
     strAtributtePlayer = forçaPlayer + (swordPlayerAtt1 - armorEnemyAtt1);
     strAtributtePve = forçaPve + (swordEnemyAtt1 - armorPlayerAtt1);
-    console.log(strAtributtePve);
 
     luckAtributtePlayer = luckPlayer;
     luckAtributtePve = luckPve;
-    console.log(luckAtributtePve);
 
     ataquePowerPlayer =
       strAtributtePlayer * 10 +
@@ -92,7 +91,6 @@ export function battle(randomN, { ...jogador }, { ...enemy }, { ...equiped }) {
 
     dexAtributtePlayer = destresaPlayer + (helmetPlayerAtt1 - swordEnemyAtt2);
     dexAtributtePve = destresaPve + (helmetEnemyAtt1 - swordPlayerAtt2);
-    console.log(dexAtributtePve);
     luckAtributtePlayer = luckPlayer;
     luckAtributtePve = luckPve;
 

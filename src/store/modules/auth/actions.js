@@ -106,7 +106,6 @@ export function rewardFailure(payload) {
 }
 
 export function itemRequest(payload) {
-  console.log(payload);
   return {
     type: types.ITEM_REQUEST,
     payload,

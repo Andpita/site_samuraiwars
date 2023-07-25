@@ -249,12 +249,7 @@ function* energyRecall2({ payload }) {
       yield call(axios.put, '/users', {
         energy: energy || 0,
       });
-      toast.error('-3 de energia');
-      yield put(
-        actions.energyRecall2({
-          energy: energy || 0,
-        }),
-      );
+      toast.error(`-${energy} de energia`);
     }
   } catch (e) {
     const errors = get(e, 'response.data.errors', []);
@@ -491,7 +486,6 @@ function* payQuest({ payload }) {
 
 function* shogunQuest({ payload }) {
   const { id } = payload;
-  console.log(payload);
   try {
     if (id) {
       yield call(axios.put, `/shogun/1`, {

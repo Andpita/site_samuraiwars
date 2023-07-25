@@ -20,11 +20,9 @@ export default function Xogunato() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const {
-    status: player,
-    equiped: equiped,
-    //fragments: fragments,
-  } = useSelector((state) => state.auth);
+  const player = useSelector((state) => state.auth.status);
+
+  const equiped = useSelector((state) => state.auth.equiped);
 
   const [shogun, setShogun] = React.useState({});
   const [data, setData] = React.useState(new Date());
@@ -146,6 +144,15 @@ export default function Xogunato() {
       title: 'Oops...',
       text: 'Sem energia!',
     });
+  };
+
+  const energyCoast = (e) => {
+    dispatch(
+      actions.energyRecall2({
+        id: player.id,
+        energy: player.energy - e,
+      }),
+    );
   };
 
   const failure = () => {
@@ -274,13 +281,6 @@ export default function Xogunato() {
   }
 
   if (stage === 1) {
-    dispatch(
-      actions.energyRecall2({
-        id: player.id,
-        energy: player.energy - 10,
-      }),
-    );
-
     const random1 = getRandom(1, 4);
     const random2 = getRandom(1, 4);
     const random3 = getRandom(1, 4);
@@ -296,7 +296,6 @@ export default function Xogunato() {
     frags = frags - water;
     const earth = getRandom(0, frags);
     frags = frags - earth;
-    console.log(frags);
 
     // if (random4 <= temp.itemBonus * 100) {
     //   const arrayAll = [...allItems];
@@ -334,7 +333,6 @@ export default function Xogunato() {
     const vitoria1 = battle1.vitoria;
     const vitoria2 = battle2.vitoria;
     const vitoria3 = battle3.vitoria;
-    console.log(realShogun);
     const vitoriaSymb =
       battle1.vitoriaSymbol + battle2.vitoriaSymbol + battle3.vitoriaSymbol;
 
@@ -370,9 +368,25 @@ export default function Xogunato() {
           id: player.id,
         }),
       );
-    } else {
+
+      dispatch(
+        actions.energyRecall2({
+          id: player.id,
+          energy: player.energy - 10,
+        }),
+      );
+    } else if (vitoriaSymb < 0) {
       victory = false;
+
+      dispatch(
+        actions.energyRecall2({
+          id: player.id,
+          energy: player.energy - 10,
+        }),
+      );
       failure();
+    } else {
+      console.log('ERROR');
     }
 
     return (

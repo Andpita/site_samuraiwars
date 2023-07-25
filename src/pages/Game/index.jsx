@@ -129,7 +129,7 @@ export default function Game() {
     return function cleanup() {
       clearInterval(timerId);
     };
-  }, [player.level, player.energy]);
+  }, [player.level]);
 
   if (xp > coastXpForNextLevel) {
     const infoLvl = lvlUp(level, xp, [arrayXp]);

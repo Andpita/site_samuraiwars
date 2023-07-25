@@ -300,7 +300,6 @@ export default function Pvp() {
       { ...stageEnemy },
       { ...equiped },
     );
-    console.log(player, stageEnemy);
     const battle2 = battle(
       random2,
       { ...player },

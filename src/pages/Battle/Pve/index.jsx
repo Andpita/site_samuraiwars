@@ -125,12 +125,12 @@ export default function Pve() {
     });
   };
 
-  const energyCoast = () => {
+  const energyCoast = (e) => {
     sortPveEnemys(enemysPve);
     dispatch(
       actions.energyRecall2({
         id: player.id,
-        energy: player.energy - 3,
+        energy: player.energy - e,
       }),
     );
   };
@@ -245,7 +245,7 @@ export default function Pve() {
                   handleSubmit();
                   return;
                 } else {
-                  energyCoast();
+                  energyCoast(3);
                 }
               }}
             >
@@ -337,7 +337,7 @@ export default function Pve() {
                   handleSubmit();
                   return;
                 } else {
-                  energyCoast();
+                  energyCoast(3);
                 }
               }}
             >
@@ -429,7 +429,7 @@ export default function Pve() {
                   handleSubmit();
                   return;
                 } else {
-                  energyCoast();
+                  energyCoast(3);
                 }
               }}
             >
@@ -522,7 +522,7 @@ export default function Pve() {
                   handleSubmit();
                   return;
                 } else {
-                  energyCoast();
+                  energyCoast(3);
                 }
               }}
             >
@@ -614,7 +614,7 @@ export default function Pve() {
                   handleSubmit();
                   return;
                 } else {
-                  energyCoast();
+                  energyCoast(3);
                 }
               }}
             >
