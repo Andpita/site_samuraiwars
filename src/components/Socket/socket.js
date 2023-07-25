@@ -6,8 +6,8 @@ import Chat from './Chat';
 import { toast } from 'react-toastify';
 import io from 'socket.io-client';
 
-//const socket = io.connect('https://api.samuraiwars.online'); //PROD
-const socket = io.connect('http://localhost:4001'); //DEV
+const socket = io.connect('https://api.samuraiwars.online'); //PROD
+//const socket = io.connect('http://localhost:4001'); //DEV
 
 export default function SocketIo() {
   const player = useSelector((state) => state.auth.status);
